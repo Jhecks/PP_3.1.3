@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import ru.jhecks.model.Role;
 import ru.jhecks.repository.RoleRepository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -16,16 +17,19 @@ public class RoleServiceImp implements RoleService {
     }
 
     @Override
+    @Transactional
     public void createRole(Role role) {
         roleRepository.save(role);
     }
 
     @Override
+    @Transactional
     public void deleteRole(Role role) {
         roleRepository.delete(role);
     }
 
     @Override
+    @Transactional
     public void updateRole(Role role) {
         roleRepository.save(role);
     }
